@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv
+venv/
+
+# Streamlit
+.streamlit/
+
+# OS
+.DS_Store
+
+# Database / Vector DB
+vectorDB/
+data/
+*.sqlite
+*.db
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Ollama cache (if any)
+ollama/
