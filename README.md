@@ -1,122 +1,80 @@
-📱 Samsung Phone Advisor
+#  Samsung Phone Advisor
 
-An AI-powered Samsung smartphone advisor that helps users explore phone specifications, compare models, and receive intelligent recommendations using a SQL-based RAG pipeline and a multi-agent system.
+An AI-powered Samsung smartphone advisor that helps users explore phone specifications, compare models, and get recommendations using **PostgreSQL + SQL-based RAG + Multi-Agent System + Local LLM (Ollama)**.
 
-This project demonstrates a production-style AI assistant architecture built with FastAPI, PostgreSQL, Streamlit, and a local LLM (Ollama).
+This project demonstrates a **production-style AI assistant architecture** built with FastAPI and Streamlit.
 
-🚀 Key Capabilities
+---
 
-🔍 Retrieve detailed Samsung phone specifications from a database
+##  Features
 
-⚖️ Compare two Samsung smartphones (camera, battery, performance, etc.)
+- Get detailed specs of Samsung smartphones  
+- Compare two Samsung phones (camera, battery, performance, etc.)  
+- Recommend the best Samsung phone under a given budget  
+- SQL-based RAG (Retrieval Augmented Generation)  
+- Multi-Agent architecture (Data Extractor, Review Generator, Confidence Agent)  
+- Clean, SaaS-style Streamlit chat UI  
+- Hallucination-controlled responses (DB-first, LLM-last)
 
-💸 Recommend the best Samsung phone under a given budget
+---
 
-🧠 SQL-based Retrieval Augmented Generation (RAG)
+##  Tech Stack
 
-🤖 Multi-Agent architecture for modular reasoning
+- **Backend:** FastAPI  
+- **Frontend:** Streamlit  
+- **Database:** PostgreSQL  
+- **ORM:** SQLAlchemy  
+- **RAG:** SQL-based retrieval  
+- **LLM:** Ollama (local model)  
+- **Language:** Python  
 
-🧾 Hallucination-controlled responses (DB-first, LLM-last)
 
-🖥️ Clean, SaaS-style Streamlit chat interface
-
-🧠 System Architecture (High Level)
-User Query
-   ↓
-Query Classifier
-   ↓
-Agent Manager
-   ↓
-Relevant Agent (Data / Review / Help / Fallback)
-   ↓
-SQL-based Retriever (PostgreSQL)
-   ↓
-LLM (Ollama)
-   ↓
-Confidence Agent
-   ↓
-Final Response
-
-🧩 Multi-Agent Design
-Agent	Responsibility
-Greeting Agent	Handles greetings and welcome messages
-Help Agent	Explains system capabilities
-Clarification Agent	Requests missing information
-Data Extractor Agent	Retrieves phone specs from DB
-Review Generator Agent	Generates natural-language reviews
-Confidence Agent	Scores response reliability
-Fallback Agent	Handles unknown or unsupported queries
-Agent Manager	Routes queries to the correct agent
-🧠 RAG Strategy
-
-Retrieval: SQL-based querying over PostgreSQL (no vector hallucination)
-
-Generation: LLM is used only after verified data retrieval
-
-Control: Ensures factual, grounded responses
-
-🛠️ Tech Stack
-Layer	Technology
-Backend API	FastAPI
-Frontend UI	Streamlit
-Database	PostgreSQL
-ORM	SQLAlchemy
-RAG	SQL-based Retrieval
-LLM	Ollama (Local Model)
-Language	Python
 📂 Project Structure
+
+```text
 SAMSUNG-PHONE-ADVISOR/
 ├── app/
 │   ├── agents/
-│   │   ├── greeting_agent.py
-│   │   ├── help_agent.py
-│   │   ├── clarification_agent.py
-│   │   ├── fallback_agent.py
-│   │   ├── data_extractor.py
-│   │   ├── review_generator.py
-│   │   ├── confidence_agent.py
-│   │   └── agent_manager.py
-│   │
+│   │   ├── greeting_agent.py        # WORKING
+│   │   ├── help_agent.py            # WORKING
+│   │   ├── clarification_agent.py   # WORKING
+│   │   ├── fallback_agent.py        # WORKING
+│   │   ├── data_extractor.py        # WORKING
+│   │   ├── review_generator.py      # WORKING
+│   │   ├── confidence_agent.py      # WORKING
+│   │   └── agent_manager.py         # WORKING
 │   ├── api/
-│   │   ├── routes.py
-│   │   ├── schemas.py
+│   │   ├── routes.py                # WORKING
+│   │   ├── schemas.py               # WORKING
 │   │   └── __init__.py
-│   │
 │   ├── core/
-│   │   ├── settings.py
-│   │   ├── database.py
-│   │   └── config.py
-│   │
+│   │   ├── settings.py              # WORKING
+│   │   ├── database.py              # WORKING
+│   │   └── config.py                # FUTURE / OPTIONAL
 │   ├── models/
-│   │   └── phone.py
-│   │
+│   │   └── phone.py                 # WORKING
 │   ├── rag/
-│   │   ├── query_classifier.py
-│   │   └── retriever.py
-│   │
+│   │   ├── query_classifier.py      # WORKING
+│   │   └── retriever.py             # WORKING
 │   ├── services/
-│   │   ├── comparison.py
-│   │   └── recommendation.py
-│   │
+│   │   ├── comparison.py            # FUTURE
+│   │   └── recommendation.py        # FUTURE
 │   ├── utils/
-│   │   ├── prompt_templates.py
-│   │   ├── text_parser.py
-│   │   └── create_tables.py
-│   │
-│   └── main.py
-│
+│   │   ├── prompt_templates.py      # FUTURE
+│   │   ├── text_parser.py           # FUTURE
+│   │   └── create_tables.py         # WORKING
+│   └── main.py                      # WORKING
 ├── scraper/
-│   ├── gsmarena_scraper.py
-│   ├── insert_sample_data.py
-│   └── insert_to_db.py
-│
+│   ├── gsmarena_scraper.py          # WORKING
+│   ├── insert_sample_data.py        # WORKING
+│   └── insert_to_db.py              # OPTIONAL
 ├── tests/
-│   ├── test_agents.py
-│   └── test_api.py
-│
-├── streamlit_app.py
+│   ├── test_agents.py               # FUTURE
+│   └── test_api.py                  # FUTURE
+├── streamlit_app.py                 # WORKING
 ├── requirements.txt
 ├── README.md
-├── docker-compose.yml
-├── .env
+├── docker-compose.yml               # FUTURE
+├── .env                             # NOT COMMITTED
 └── .gitignore
+
