@@ -35,10 +35,10 @@ This project demonstrates a **production-style AI assistant architecture** built
 ## 📂 Project Structure
 
 
-SAMSUNG-PHONE-ADVISOR/
+SSAMSUNG-PHONE-ADVISOR/
 │
 ├── app/ # Core application logic
-│
+│ │
 │ ├── agents/ # 🤖 Multi-Agent System
 │ │ ├── greeting_agent.py # ✅ Handles greetings (WORKING)
 │ │ ├── help_agent.py # ✅ Explains system capabilities (WORKING)
@@ -48,33 +48,33 @@ SAMSUNG-PHONE-ADVISOR/
 │ │ ├── review_generator.py # ✅ Agent 2: LLM-based response generation (WORKING)
 │ │ ├── confidence_agent.py # ✅ Confidence scoring for reliability (WORKING)
 │ │ └── agent_manager.py # ✅ Central orchestrator (WORKING)
-│
+│ │
 │ ├── api/ # 🌐 FastAPI layer
 │ │ ├── routes.py # ✅ /api/ask endpoint (WORKING)
 │ │ ├── schemas.py # ✅ Request/Response models (WORKING)
 │ │ └── init.py
-│
-│ ├── core/ # ⚙️ Configuration & DB
+│ │
+│ ├── core/ # ⚙️ Configuration & Database
 │ │ ├── settings.py # ✅ Environment-based global settings (WORKING)
 │ │ ├── database.py # ✅ PostgreSQL connection & session (WORKING)
 │ │ └── config.py # 🟡 Legacy/simple config (FUTURE / OPTIONAL)
-│
+│ │
 │ ├── models/ # 🗄️ Database models
 │ │ └── phone.py # ✅ Phone ORM model (WORKING)
-│
+│ │
 │ ├── rag/ # 🔍 SQL-based RAG
 │ │ ├── query_classifier.py # ✅ Intent + entity extraction (WORKING)
 │ │ └── retriever.py # ✅ SQL RAG retriever (WORKING)
-│
+│ │
 │ ├── services/ # 🧩 Domain services
 │ │ ├── comparison.py # 🟡 Future advanced comparison logic
 │ │ └── recommendation.py # 🟡 Future recommendation scoring logic
-│
+│ │
 │ ├── utils/ # 🛠️ Utilities
 │ │ ├── prompt_templates.py # 🟡 Future prompt abstraction
 │ │ ├── text_parser.py # 🟡 Future NLP preprocessing
 │ │ └── create_tables.py # ✅ DB table creation script (WORKING)
-│
+│ │
 │ └── main.py # ✅ FastAPI app entry point (WORKING)
 │
 ├── scraper/ # 📥 Data collection
@@ -95,4 +95,5 @@ SAMSUNG-PHONE-ADVISOR/
 └── pycache/ # Python cache (ignored)
 
 ---
+
 
