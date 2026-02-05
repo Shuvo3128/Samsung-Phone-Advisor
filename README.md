@@ -4,7 +4,7 @@ An AI-powered Samsung smartphone advisor that helps users explore phone specific
 
 This project demonstrates a **production-style AI assistant architecture** built with FastAPI and Streamlit.
 
-
+---
 
 ##  Features
 
@@ -16,7 +16,7 @@ This project demonstrates a **production-style AI assistant architecture** built
 - Clean, SaaS-style Streamlit chat UI  
 - Hallucination-controlled responses (DB-first, LLM-last)
 
-
+---
 
 ##  Tech Stack
 
@@ -76,6 +76,7 @@ SAMSUNG-PHONE-ADVISOR/
 ├── docker-compose.yml               # FUTURE
 ├── .env                             # NOT COMMITTED
 └── .gitignore
+
 
 
 
