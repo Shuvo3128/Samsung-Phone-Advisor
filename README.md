@@ -30,9 +30,7 @@ This project demonstrates a **production-style AI assistant architecture** built
 
 ---
 
-
-
-## Project Structure
+📂 Project Structure
 
 
 SAMSUNG-PHONE-ADVISOR/
@@ -93,6 +91,7 @@ SAMSUNG-PHONE-ADVISOR/
 ├── .env                              # Environment variables (NOT COMMITTED)
 ├── .gitignore                        # Git ignore rules
 └── __pycache__/                      # Python cache (ignored)
+
 
 
 
