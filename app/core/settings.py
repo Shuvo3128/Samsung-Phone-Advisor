@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     # DATABASE (PostgreSQL)
     # -----------------------------
     DB_HOST: str = "localhost"
-    DB_PORT: int = 5432
+    DB_PORT: int = 5433
     DB_NAME: str = "samsung_db"
     DB_USER: str = "postgres"
     DB_PASSWORD: str = "postgres"

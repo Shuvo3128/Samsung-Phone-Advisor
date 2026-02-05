@@ -90,12 +90,10 @@ def classify_domain_intent(question: str) -> Intent:
 def extract_entities(question: str, intent: Intent) -> Dict:
     entities = {}
 
+    q = question.lower().strip()
+
     if intent == Intent.COMPARE:
-        clean_q = question.lower()
-
-        # remove keywords like "compare"
-        clean_q = re.sub(r"\bcompare\b", "", clean_q)
-
+        clean_q = re.sub(r"\bcompare\b", "", q)
         parts = re.split(r"\band\b|\bvs\b", clean_q, flags=re.IGNORECASE)
 
         if len(parts) >= 2:
@@ -103,13 +101,21 @@ def extract_entities(question: str, intent: Intent) -> Dict:
             entities["model_2"] = parts[1].strip().title()
 
     elif intent == Intent.RECOMMEND:
-        match = re.search(r"under\s*\$?(\d+)", question.lower())
+        match = re.search(r"under\s*\$?(\d+)", q)
         entities["max_price"] = int(match.group(1)) if match else 1000
 
-    else:
-        entities["model_name"] = question.strip()
+    else:  # SPEC
+        # remove common spec phrases
+        clean_model = re.sub(
+            r"(what are the specs of|show specs of|specs of|what is the specs of)",
+            "",
+            q,
+            flags=re.IGNORECASE,
+        )
+        entities["model_name"] = clean_model.strip().title()
 
     return entities
+
 
 
 
